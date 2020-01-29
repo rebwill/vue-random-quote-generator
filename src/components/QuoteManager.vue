@@ -5,26 +5,34 @@ QuoteGenerator - Need currentQuote and savedQuotes in data
 <template>
   <div>
     <div class="quote-manager">
-      <b-button v-on:click="saveQuote">Save to My Quotes</b-button>
+      <div class="my-quotes-title">MY QUOTES</div>
+      <div v-if="savedQuotes.length === 0" class="no-saved-quotes">
+        No quotes saved yet!
+      </div>
+      <!-- <b-button id="quote-btn" v-on:click="saveQuote"
+        >Save to My Quotes</b-button
+      > -->
       <b-button
+        id="quote-btn"
         v-if="displayCards == false && savedQuotes.length > 0"
         v-on:click="showQuotes"
         >Show My Quotes</b-button
       >
       <b-button
+        id="quote-btn"
         v-if="displayCards == true && savedQuotes.length > 0"
         v-on:click="hideQuotes"
         >Hide My Quotes</b-button
       >
       <br />
-    </div>
-    <div v-if="displayCards == true">
-      <quote-card
-        v-for="quote in savedQuotes"
-        :key="quote.id"
-        :quote="quote"
-        @remove-quote="removeQuote"
-      ></quote-card>
+      <div v-if="displayCards == true">
+        <quote-card
+          v-for="quote in savedQuotes"
+          :key="quote.id"
+          :quote="quote"
+          @remove-quote="removeQuote"
+        ></quote-card>
+      </div>
     </div>
   </div>
 </template>
@@ -58,6 +66,7 @@ export default {
       this.displayCards = false;
     },
     saveQuote() {
+      console.log("saveQuote() called!");
       // if there are no saved quotes, add currentQuote
       if (this.savedQuotes.length === 0) {
         this.savedQuotes.push(this.currentQuote);
@@ -81,16 +90,9 @@ export default {
       if (this.savedQuotes.length === 0) {
         return;
       } else if (this.savedQuotes.length > 0) {
-        for (var i = 0; i < this.savedQuotes.length; i++) {
-          if (e === this.savedQuotes[i].id) {
-            this.savedQuotes.splice(this.savedQuotes[i], 1);
-            localStorage.setItem(
-              "savedQuotes",
-              JSON.stringify(this.savedQuotes)
-            );
-            console.log("quote removed from savedQuotes and localStorage!");
-          }
-        }
+        var quoteIndex = this.savedQuotes.findIndex(quote => quote.id === e);
+        this.savedQuotes.splice(quoteIndex, 1);
+        localStorage.setItem("savedQuotes", JSON.stringify(this.savedQuotes));
       }
     }
   }
@@ -99,10 +101,48 @@ export default {
 
 <style scoped>
 .quote-manager {
-  border: 3px solid crimson;
-  border-radius: 40px;
   width: 75%;
   margin: 2rem auto;
-  padding: 3rem;
+  padding: 0rem 3rem;
+  border-radius: 255px 15px 225px 15px/20px 225px 15px 255px;
+  border: solid 2px white;
+  padding: 1rem;
+}
+
+.my-quotes-title {
+  font-family: "Josefin Sans", sans-serif;
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+.no-saved-quotes {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400;
+  color: white;
+  font-size: 1.5rem;
+}
+
+#quote-btn {
+  border-radius: 255px 15px 225px 15px/20px 225px 15px 255px;
+  border: solid 2px black;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: black;
+  -webkit-box-shadow: 20px 38px 34px -26px hsla(0, 0%, 0%, 0.2);
+  box-shadow: 50px 38px 34px -26px black;
+  box-shadow: 5px 5px;
+  font-weight: bold;
+}
+#quote-btn:hover {
+  background-color: white;
+  color: black;
+  border-color: black;
+}
+#quote-btn:active {
+  background-color: white;
+}
+#quote-btn:focus {
+  background-color: white;
 }
 </style>
