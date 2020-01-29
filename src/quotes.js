@@ -83,7 +83,6 @@ export function getRandomQuote() {
   for (var i = 0; i < quotes.length; i++) {
     quotes[i].id = i + 1;
     var quotesWithId = quotes;
-    console.log(quotesWithId[i].id);
   }
   max = quotesWithId.length;
   // returns a random integer up to max - 1

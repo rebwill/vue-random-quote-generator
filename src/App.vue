@@ -35,6 +35,7 @@ export default {
   methods: {
     getAnotherRandomQuote() {
       this.currentQuote = getRandomQuote();
+      console.log("new currentQuote.id: " + this.currentQuote.id);
     }
   }
 };

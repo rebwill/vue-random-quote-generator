@@ -56,22 +56,21 @@ export default {
       this.displayCards = false;
     },
     saveQuote() {
+      // if there are no saved quotes, add currentQuote
       if (this.savedQuotes.length === 0) {
         this.savedQuotes.push(this.currentQuote);
         localStorage.setItem("savedQuotes", JSON.stringify(this.savedQuotes));
         console.log("first quote added!");
+        // if there ARE saved quotes
       } else if (this.savedQuotes.length > 0) {
-        for (let i = 0; i < this.savedQuotes.length; i++) {
-          if (this.savedQuotes[i].id !== this.currentQuote.id) {
-            this.savedQuotes.push(this.currentQuote);
-            localStorage.setItem(
-              "savedQuotes",
-              JSON.stringify(this.savedQuotes)
-            );
-            console.log("quote added to savedQuotes and localStorage!");
-          } else if (this.savedQuotes[i].id === this.currentQuote.id) {
-            alert("This quote has already been added!");
-          }
+        let quoteExists = this.savedQuotes.filter(
+          quote => quote.id === this.currentQuote.id
+        );
+        if (quoteExists.length === 0) {
+          this.savedQuotes.push(this.currentQuote);
+          console.log("quote added to savedQuotes and localStorage!");
+        } else if (quoteExists.length > 0) {
+          alert("This quote has already been added!");
         }
       }
     },
