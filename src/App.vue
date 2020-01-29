@@ -1,16 +1,18 @@
 <template>
   <div id="app">
+    <b-navbar>
+      <b-navbar-brand href="#">GET INSPIRED</b-navbar-brand>
+    </b-navbar>
     <div class="quote-generator">
       <a v-if="currentQuote.link" :href="currentQuote.link">
-        {{
-        currentQuote.body
-        }}
+        {{ currentQuote.body }}
       </a>
       <span v-else>{{ currentQuote.body }}</span>
       <br />
-      <button @click="getAnotherRandomQuote">Get Another Quote</button>
+      <b-button class="btn-primary" @click="getAnotherRandomQuote">
+        Get Another Quote
+      </b-button>
     </div>
-
     <quote-manager :currentQuote="currentQuote"></quote-manager>
   </div>
 </template>
@@ -48,7 +50,8 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  background-color: aquamarine;
+  height: auto;
 }
 
 .quote-generator {

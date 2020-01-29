@@ -125,3 +125,7 @@ I used the Vue documentation and a couple of basic tutorials (like this one http
     - First read about a method to use a watcher to monitor and change, and mounted() to retrieve it on load. However, I had trouble getting this to work for my purposes and also thought it might be more reliable to just have the saveQuote/removeQuote functions set localStorage directly.
 
 16. Challenge: initially used for loop to determine if a quote was already saved to savedQuotes, but realized that wasn't the right tool because it would continue looping after a quote was saved, and then return the message that it had already been saved. Went with a filter() function as it was more effective and efficient.
+
+FRONT END
+
+17. I really wanted to use vuetify because I really like its design but I really struggled with installation and decided that the time it would take me to correct it would probably detract from the final product so I decided to just use bootstrap-vue which had simpler installation and would still simplify/standardize my front end design.

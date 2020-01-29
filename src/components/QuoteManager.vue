@@ -5,15 +5,17 @@ QuoteGenerator - Need currentQuote and savedQuotes in data
 <template>
   <div>
     <div class="quote-manager">
-      <button v-on:click="saveQuote">Save to My Quotes</button>
-      <button
+      <b-button v-on:click="saveQuote">Save to My Quotes</b-button>
+      <b-button
         v-if="displayCards == false && savedQuotes.length > 0"
         v-on:click="showQuotes"
-      >Show My Quotes</button>
-      <button
+        >Show My Quotes</b-button
+      >
+      <b-button
         v-if="displayCards == true && savedQuotes.length > 0"
         v-on:click="hideQuotes"
-      >Hide My Quotes</button>
+        >Hide My Quotes</b-button
+      >
       <br />
     </div>
     <div v-if="displayCards == true">
@@ -68,6 +70,7 @@ export default {
         );
         if (quoteExists.length === 0) {
           this.savedQuotes.push(this.currentQuote);
+          localStorage.setItem("savedQuotes", JSON.stringify(this.savedQuotes));
           console.log("quote added to savedQuotes and localStorage!");
         } else if (quoteExists.length > 0) {
           alert("This quote has already been added!");

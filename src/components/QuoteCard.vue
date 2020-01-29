@@ -1,10 +1,12 @@
 <template>
-  <div class="quote-card">
+  <b-card class="quote-card">
     <!-- <v-card-text>{{ quote.body }}</v-card-text> -->
     <p>{{ quote.body }}</p>
 
-    <button @click="$emit('remove-quote', quote.id)">Remove from My Quotes</button>
-  </div>
+    <b-button @click="$emit('remove-quote', quote.id)"
+      >Remove from My Quotes</b-button
+    >
+  </b-card>
 </template>
 
 <script>
@@ -18,8 +20,8 @@ export default {
 
 <style scoped>
 .quote-card {
-  border: 3px solid black;
-  background-color: cornflowerblue;
+  /* border: 3px solid black;
+  background-color: cornflowerblue; */
   border-radius: 40px;
   width: 75%;
   margin: 2rem auto;
