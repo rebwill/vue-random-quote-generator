@@ -134,3 +134,4 @@ TO DO
 
 - translate-y and transitions 2ms for buttons
 - fix for mobile
+    <!-- <link rel="icon" href="<%= BASE_URL %>favicon.ico" /> -->

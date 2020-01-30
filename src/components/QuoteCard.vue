@@ -54,7 +54,11 @@ export default {
 #quote-card-btn {
   border-radius: 255px 15px 225px 15px/20px 225px 15px 255px;
   border: solid 2px black;
-  /* background-image: linear-gradient(to bottom right, #521c34, #003862); */
+  background-image: linear-gradient(
+    to bottom right,
+    rgba(191, 174, 185, 0.5),
+    rgba(109, 143, 173, 0.5)
+  );
   color: black;
   box-shadow: 5px 5px black;
   margin: 1rem;
@@ -64,11 +68,7 @@ export default {
   transition: all 0.5s;
 }
 #quote-card-btn:hover {
-  background-image: linear-gradient(
-    to bottom right,
-    rgba(82, 28, 52, 0.7),
-    rgba(0, 56, 98, 0.7)
-  );
+  background-color: white;
   transform: translateY(-2px);
 }
 #quote-card-btn:active {
