@@ -129,3 +129,8 @@ I used the Vue documentation and a couple of basic tutorials (like this one http
 FRONT END
 
 17. I really wanted to use vuetify because I really like its design but I really struggled with installation and decided that the time it would take me to correct it would probably detract from the final product so I decided to just use bootstrap-vue which had simpler installation and would still simplify/standardize my front end design.
+
+TO DO
+
+- translate-y and transitions 2ms for buttons
+- fix for mobile

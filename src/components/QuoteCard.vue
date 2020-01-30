@@ -24,20 +24,31 @@ export default {
 
 <style scoped>
 .quote-card {
-  border: 3px solid white;
   border-radius: 20px;
   width: max-content;
   max-width: 75%;
   margin: 2rem auto 3rem auto;
-  padding: 1rem;
+  padding: 0.75rem;
   font-size: 1.5rem;
   font-weight: 700;
-  font-family: "Merriweather", serif;
-  color: #521c34;
+  font-family: "Roboto", sans-serif;
+  color: black;
   background-color: rgba(255, 255, 255);
-  /* border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%; */
-  border-radius: 50px;
+  border: 3px solid black;
+  border-radius: 20px;
   box-shadow: 1px 10px 20px 1px black;
+}
+@media only screen and (max-width: 768px) {
+  .quote-card {
+    font-size: 1.25rem;
+    padding: 0;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .card-body {
+    font-size: 1.25rem;
+    padding: 1rem;
+  }
 }
 
 #quote-card-btn {
@@ -50,6 +61,7 @@ export default {
   font-weight: bold;
   font-family: "Roboto", sans-serif;
   background-color: white;
+  transition: all 0.5s;
 }
 #quote-card-btn:hover {
   background-image: linear-gradient(
@@ -57,15 +69,9 @@ export default {
     rgba(82, 28, 52, 0.7),
     rgba(0, 56, 98, 0.7)
   );
+  transform: translateY(-2px);
 }
 #quote-card-btn:active {
-  background-image: linear-gradient(
-    to bottom right,
-    rgba(82, 28, 52, 0.7),
-    rgba(0, 56, 98, 0.7)
-  );
-}
-#quote-card-btn:focus {
   background-image: linear-gradient(
     to bottom right,
     rgba(82, 28, 52, 0.7),

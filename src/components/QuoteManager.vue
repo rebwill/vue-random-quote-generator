@@ -6,12 +6,9 @@ QuoteGenerator - Need currentQuote and savedQuotes in data
   <div>
     <div class="quote-manager">
       <div class="my-quotes-title">MY QUOTES</div>
-      <div v-if="savedQuotes.length === 0" class="no-saved-quotes">
+      <div v-if="savedQuotes.length === 0" class="no-quotes-yet">
         No quotes saved yet!
       </div>
-      <!-- <b-button id="quote-btn" v-on:click="saveQuote"
-        >Save to My Quotes</b-button
-      > -->
       <b-button
         id="quote-btn"
         v-if="displayCards == false && savedQuotes.length > 0"
@@ -24,8 +21,8 @@ QuoteGenerator - Need currentQuote and savedQuotes in data
         v-on:click="hideQuotes"
         >Hide My Quotes</b-button
       >
-      <br />
-      <div v-if="displayCards == true">
+      <br v-if="savedQuotes.length > 0" />
+      <div class="quote-card-wrapper" v-if="displayCards == true">
         <quote-card
           v-for="quote in savedQuotes"
           :key="quote.id"
@@ -108,6 +105,12 @@ export default {
   border: solid 2px white;
   padding: 1rem;
 }
+@media only screen and (max-width: 768px) {
+  .quote-manager {
+    padding: 1.5rem 0.5rem 2rem 0.5rem;
+    width: 90%;
+  }
+}
 
 .my-quotes-title {
   font-family: "Josefin Sans", sans-serif;
@@ -116,8 +119,14 @@ export default {
   font-weight: 700;
   text-align: left;
 }
+@media only screen and (max-width: 768px) {
+  .my-quotes-title {
+    font-size: 2rem;
+    text-align: center;
+  }
+}
 
-.no-saved-quotes {
+.no-quotes-yet {
   font-family: "Josefin Sans", sans-serif;
   font-weight: 400;
   color: white;
@@ -144,5 +153,11 @@ export default {
 }
 #quote-btn:focus {
   background-color: white;
+}
+
+@media only screen and (max-width: 768px) {
+  .quote-card-wrapper {
+    width: auto;
+  }
 }
 </style>

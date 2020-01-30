@@ -85,10 +85,6 @@ export default {
   background-attachment: fixed;
 }
 
-/* #navbar {
-  text-align: center;
-} */
-
 #site-brand {
   font-family: "Josefin Sans", sans-serif;
   color: white;
@@ -107,7 +103,6 @@ export default {
 }
 
 .quote-generator {
-  border: 3px solid white;
   border-radius: 20px;
   width: max-content;
   max-width: 75%;
@@ -116,10 +111,10 @@ export default {
   font-size: 1.5rem;
   font-weight: 700;
   font-family: "Roboto", sans-serif;
-  color: #521c34;
+  color: black;
   background-color: rgba(255, 255, 255);
-  /* border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%; */
-  border-radius: 50px;
+  border: 3px solid black;
+  border-radius: 20px;
   box-shadow: 1px 10px 20px 1px black;
 }
 @media only screen and (max-width: 768px) {
@@ -127,12 +122,14 @@ export default {
     font-size: 1.25rem;
     padding: 1rem;
     margin: 1rem auto 3rem auto;
+    width: 80vw;
+    max-width: none;
   }
 }
 
-.quote-text {
+/* .quote-text {
   font-family: "Merriweather", serif;
-}
+} */
 
 a.quote-text {
   color: #003862;
@@ -146,14 +143,13 @@ a.quote-text {
   box-shadow: 5px 5px;
   margin: 1rem;
   font-weight: bold;
+  transition: all 0.5s;
 }
 #quote-btn:hover {
   background-color: white;
+  transform: translateY(-2px);
 }
 #quote-btn:active {
-  background-color: white;
-}
-#quote-btn:focus {
   background-color: white;
 }
 </style>
