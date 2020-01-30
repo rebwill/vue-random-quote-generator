@@ -35,7 +35,7 @@ export default {
   color: black;
   background-color: rgba(255, 255, 255);
   border: 3px solid black;
-  border-radius: 20px;
+  border-radius: 255px 15px 225px 15px/20px 225px 15px 255px;
   box-shadow: 1px 10px 20px 1px black;
 }
 @media only screen and (max-width: 768px) {

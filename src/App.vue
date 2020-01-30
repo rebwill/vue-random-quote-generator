@@ -76,13 +76,14 @@ export default {
 }
 
 .hero-img {
-  background-image: url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=827&q=80");
+  background-image: url("https://images.unsplash.com/photo-1562177501-dc57a677ae91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=80");
   min-height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   padding-bottom: 3rem;
   background-attachment: fixed;
+  /* previous image: https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=827&q=80 */
 }
 
 #site-brand {
@@ -103,7 +104,7 @@ export default {
 }
 
 .quote-generator {
-  border-radius: 20px;
+  border-radius: 255px 15px 225px 15px/20px 225px 15px 255px;
   width: max-content;
   max-width: 75%;
   margin: 2rem auto 3rem auto;
@@ -114,7 +115,6 @@ export default {
   color: black;
   background-color: rgba(255, 255, 255);
   border: 3px solid black;
-  border-radius: 20px;
   box-shadow: 1px 10px 20px 1px black;
 }
 @media only screen and (max-width: 768px) {
