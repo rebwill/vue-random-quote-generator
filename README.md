@@ -4,6 +4,8 @@
 
 An app that displays randomized inspirational quotes. Users have the ability to save quotes to local storage, as well as remove them. User can also show or hide their saved quotes.
 
+Find it live here: https://inspirational-quote-generator.herokuapp.com/
+
 ## Project setup
 
 ```
