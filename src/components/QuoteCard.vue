@@ -6,19 +6,14 @@
     &nbsp;
     <i class="fas fa-quote-right"></i>
     <br />
-
-    <b-button id="quote-card-btn" @click="$emit('remove-quote', quote.id)"
-      >Remove from My Quotes</b-button
-    >
+    <b-button id="quote-card-btn" @click="$emit('remove-quote', quote.id)">Remove from My Quotes</b-button>
   </b-card>
 </template>
 
 <script>
-// import { getRandomQuote } from "@/quotes";
-
 export default {
   name: "quote-card",
-  props: ["quote"] // it is being passed this from QuoteManager.vue
+  props: ["quote"] // this is passed from QuoteManager
 };
 </script>
 
@@ -54,6 +49,7 @@ export default {
 #quote-card-btn {
   border-radius: 255px 15px 225px 15px/20px 225px 15px 255px;
   border: solid 2px black;
+  background-color: white;
   background-image: linear-gradient(
     to bottom right,
     rgba(191, 174, 185, 0.5),
@@ -64,18 +60,17 @@ export default {
   margin: 1rem;
   font-weight: bold;
   font-family: "Roboto", sans-serif;
-  background-color: white;
   transition: all 0.5s;
 }
 #quote-card-btn:hover {
   background-color: white;
+  background-image: none;
   transform: translateY(-2px);
 }
 #quote-card-btn:active {
-  background-image: linear-gradient(
-    to bottom right,
-    rgba(82, 28, 52, 0.7),
-    rgba(0, 56, 98, 0.7)
-  );
+  background-color: white;
+}
+#quote-card-btn:focus {
+  box-shadow: 0 0 0 0.3rem rgb(83, 42, 69);
 }
 </style>

@@ -11,23 +11,14 @@
           class="quote-text"
           v-if="currentQuote.link"
           :href="currentQuote.link"
-        >
-          {{ currentQuote.body }}
-        </a>
+        >{{ currentQuote.body }}</a>
         <span class="quote-text" v-else>{{ currentQuote.body }}</span>
         &nbsp;
         <i class="fas fa-quote-right"></i>
       </div>
-      <b-button id="quote-btn" @click="getAnotherRandomQuote">
-        Get Another Quote
-      </b-button>
-      <b-button @click="saveQuoteClickHandler" id="quote-btn">
-        Save to My Quotes
-      </b-button>
-      <quote-manager
-        ref="quoteManager"
-        :currentQuote="currentQuote"
-      ></quote-manager>
+      <b-button id="quote-btn" @click="getAnotherRandomQuote">Get Another Quote</b-button>
+      <b-button @click="saveQuoteClickHandler" id="quote-btn">Save to My Quotes</b-button>
+      <quote-manager ref="quoteManager" :currentQuote="currentQuote"></quote-manager>
     </div>
   </div>
 </template>
@@ -64,15 +55,11 @@ export default {
 
 <style>
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  /* background-color: aquamarine; */
   position: relative;
-  /* min-height: 100vh; */
-  /* padding-bottom: 3rem; */
 }
 
 .hero-img {
@@ -83,7 +70,6 @@ export default {
   background-size: cover;
   padding-bottom: 3rem;
   background-attachment: fixed;
-  /* previous image: https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=827&q=80 */
 }
 
 #site-brand {
@@ -127,10 +113,6 @@ export default {
   }
 }
 
-/* .quote-text {
-  font-family: "Merriweather", serif;
-} */
-
 a.quote-text {
   color: #003862;
 }
@@ -151,5 +133,8 @@ a.quote-text {
 }
 #quote-btn:active {
   background-color: white;
+}
+#quote-btn:focus {
+  box-shadow: 0 0 0 0.3rem #cf59c3;
 }
 </style>

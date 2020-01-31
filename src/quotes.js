@@ -79,13 +79,13 @@ export const quotes = [
 ];
 
 export function getRandomQuote() {
-  let max = quotes.length;
+  // assign an ID to all the quote objects and return the new array
   for (var i = 0; i < quotes.length; i++) {
     quotes[i].id = i + 1;
     var quotesWithId = quotes;
   }
-  max = quotesWithId.length;
-  // returns a random integer up to max - 1
+  // return a randomly selected object from the new array
+  let max = quotesWithId.length;
   const x = Math.floor(Math.random() * Math.floor(max));
   return quotesWithId[x];
 }

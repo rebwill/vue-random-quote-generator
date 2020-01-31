@@ -1,26 +1,18 @@
-// QuoteManager allows user to SAVE a quote to My Quotes and REMOVE a quote from
-My Quotes. // To save a quote to My Quotes: - Need to pass in currentQuote from
-QuoteGenerator - Need currentQuote and savedQuotes in data
-
 <template>
   <div>
     <div class="quote-manager">
       <div class="my-quotes-title">MY QUOTES</div>
-      <div v-if="savedQuotes.length === 0" class="no-quotes-yet">
-        No quotes saved yet!
-      </div>
+      <div v-if="savedQuotes.length === 0" class="no-quotes-yet">No quotes saved yet!</div>
       <b-button
         id="quote-btn"
         v-if="displayCards == false && savedQuotes.length > 0"
         v-on:click="showQuotes"
-        >Show My Quotes</b-button
-      >
+      >Show My Quotes</b-button>
       <b-button
         id="quote-btn"
         v-if="displayCards == true && savedQuotes.length > 0"
         v-on:click="hideQuotes"
-        >Hide My Quotes</b-button
-      >
+      >Hide My Quotes</b-button>
       <br v-if="savedQuotes.length > 0" />
       <div class="quote-card-wrapper" v-if="displayCards == true">
         <quote-card
@@ -39,7 +31,7 @@ import QuoteCard from "./QuoteCard";
 
 export default {
   name: "quote-manager",
-  props: ["currentQuote"], // it is being passed this from App.vue
+  props: ["currentQuote"], // this is passed from App.vue
   components: {
     QuoteCard
   },
@@ -50,7 +42,6 @@ export default {
     };
   },
   mounted() {
-    console.log("app mounted!");
     if (localStorage.getItem("savedQuotes")) {
       this.savedQuotes = JSON.parse(localStorage.getItem("savedQuotes"));
     }
@@ -69,23 +60,27 @@ export default {
         this.savedQuotes.push(this.currentQuote);
         localStorage.setItem("savedQuotes", JSON.stringify(this.savedQuotes));
         console.log("first quote added!");
-        // if there ARE saved quotes
+        // if there ARE saved quotes, check if currentQuote is already saved.
       } else if (this.savedQuotes.length > 0) {
         let quoteExists = this.savedQuotes.filter(
           quote => quote.id === this.currentQuote.id
         );
+        // if currentQuote does not already exist in savedQuotes, add it.
         if (quoteExists.length === 0) {
           this.savedQuotes.push(this.currentQuote);
           localStorage.setItem("savedQuotes", JSON.stringify(this.savedQuotes));
           console.log("quote added to savedQuotes and localStorage!");
+          // if currentQuote already exists in savedQuotes, display alert.
         } else if (quoteExists.length > 0) {
           alert("This quote has already been added!");
         }
       }
     },
     removeQuote(e) {
+      // if there are no saved quotes, do nothing
       if (this.savedQuotes.length === 0) {
         return;
+        // if there are saved quotes, remove the one that was clicked.
       } else if (this.savedQuotes.length > 0) {
         var quoteIndex = this.savedQuotes.findIndex(quote => quote.id === e);
         this.savedQuotes.splice(quoteIndex, 1);
@@ -152,7 +147,7 @@ export default {
   background-color: white;
 }
 #quote-btn:focus {
-  background-color: white;
+  box-shadow: 0 0 0 0.3rem #cf59c3;
 }
 
 @media only screen and (max-width: 768px) {
